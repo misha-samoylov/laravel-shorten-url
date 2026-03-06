@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('links', function (Blueprint $table) {
             $table->id();
-            $table->string('hash')->comment('Generated hash');
+            $table->string('hash')->comment('Generated hash')->unique();
             $table->string('redirect')->comment('URL to redirect');
             $table->timestamps();
         });
