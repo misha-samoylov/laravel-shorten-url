@@ -16,7 +16,7 @@ class LinksController
     public function store(StoreLinkRequest $request)
     {
         Link::create([
-            'name' => Str::random(40),
+            'hash' => Str::random(40),
             'redirect' => request('redirect')
         ]);
 
