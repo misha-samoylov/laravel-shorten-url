@@ -21,7 +21,7 @@ class LinksController
     {
         $link = Link::create([
             'hash' => md5(Str::orderedUuid()),
-            'redirect' => request('redirect')
+            'redirect' => $request->validated()['redirect'],
         ]);
 
         return new StoreLinkResource($link);
