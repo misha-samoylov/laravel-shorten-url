@@ -7,10 +7,16 @@ use App\Http\Resources\Api\V1\IndexLinkResource;
 use App\Http\Resources\Api\V1\StoreLinkResource;
 use App\Models\Link;
 use Illuminate\Http\Resources\Json\JsonResource;
-use Illuminate\Support\Str;
+use App\Services\Api\V1\HashService;
 
 class LinksController
 {
+    public function __construct(
+        private HashService $hashService
+    )
+    {
+    }
+
     public function index(): JsonResource
     {
         $data = Link::all();
@@ -20,7 +26,7 @@ class LinksController
     public function store(StoreLinkRequest $request): JsonResource
     {
         $link = Link::create([
-            'hash' => md5(Str::orderedUuid()),
+            'hash' => $this->hashService->hash(),
             'redirect' => $request->validated()['redirect'],
         ]);
 

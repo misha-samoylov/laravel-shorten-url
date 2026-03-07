@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Services\Api\V1\HashService;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +18,7 @@ class LinkFactory extends Factory
     public function definition(): array
     {
         return [
-            'hash' => $this->faker->sha256(),
+            'hash' => HashService::hash(),
             'redirect' => $this->faker->url(),
         ];
     }
