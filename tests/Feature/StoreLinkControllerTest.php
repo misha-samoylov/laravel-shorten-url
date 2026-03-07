@@ -26,7 +26,7 @@ class StoreLinkControllerTest extends TestCase
     public function test_store_link_fail_appended(): void
     {
         $payload = [
-            'id' => 'https://google.com',
+            'id' => 123,
         ];
 
         $response = $this->postJson('/api/v1/links', $payload);
