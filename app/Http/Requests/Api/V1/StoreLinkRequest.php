@@ -22,6 +22,10 @@ class StoreLinkRequest extends FormRequest
     public function rules(): array
     {
         return [
+            /**
+             * Ссылка которую требуется сократить.
+             * @example http://example.com
+             */
             'redirect' => 'required|string|max:255',
         ];
     }

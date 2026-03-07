@@ -18,12 +18,27 @@ class LinksController
     {
     }
 
+    /**
+     * Показать список ссылок.
+     *
+     * Показать весь список сокращенных ссылок.
+     *
+     * @return JsonResource
+     */
     public function index(): JsonResource
     {
         $data = $this->linkRepository->findAll();
         return IndexLinkResource::collection($data);
     }
 
+    /**
+     * Создать сокращенную ссылку.
+     *
+     * Создать сокращенную ссылку по указанному адресу.
+     *
+     * @param StoreLinkRequest $request
+     * @return JsonResource
+     */
     public function store(StoreLinkRequest $request): JsonResource
     {
         $link = $this->linkRepository->create([

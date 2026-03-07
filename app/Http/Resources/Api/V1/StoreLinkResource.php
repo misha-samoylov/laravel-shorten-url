@@ -14,6 +14,26 @@ class StoreLinkResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        return parent::toArray($request);
+        return [
+            /**
+             * @example 1
+             */
+            'id' => $this->id,
+            /**
+             * Хэш ссылки
+             * @example fa5ea8ecc066611f52fe4e69db269f0b
+             */
+            'hash' => $this->hash,
+            /**
+             * Начальная ссылка
+             * @example http://example.com
+             */
+            'redirect' => $this->redirect,
+            /**
+             * Сокращенная ссылка
+             * @example http://localhost/fa5ea8ecc066611f52fe4e69db269f0b
+             */
+            'url' => config('app.url') . '/' . $this->hash
+        ];
     }
 }
