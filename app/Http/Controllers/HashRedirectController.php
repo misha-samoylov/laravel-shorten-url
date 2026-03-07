@@ -13,6 +13,13 @@ class HashRedirectController extends Controller
     {
     }
 
+    /**
+     * Маршрут сокращенной ссылки.
+     *
+     * Перейдите по данному маршруту, чтобы перейти на исходный адрес.
+     *
+     * @return RedirectResponse
+     */
     public function index(): RedirectResponse
     {
         $route = request()->route('hash');
