@@ -1,0 +1,37 @@
+<?php
+
+namespace Tests\Feature;
+
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\TestCase;
+
+class StoreLinkControllerTest extends TestCase
+{
+    use RefreshDatabase;
+
+    private const TEST_URL = 'https://google.com';
+
+    public function test_store_link_success_appended(): void
+    {
+        $payload = [
+            'redirect' => self::TEST_URL,
+        ];
+
+        $response = $this->postJson('/api/v1/links', $payload);
+
+        $response->assertStatus(201)
+            ->assertJsonPath('data.redirect', self::TEST_URL);
+    }
+
+    public function test_store_link_fail_appended(): void
+    {
+        $payload = [
+            'id' => 'https://google.com',
+        ];
+
+        $response = $this->postJson('/api/v1/links', $payload);
+
+        $response->assertStatus(422)
+            ->assertJsonMissingPath('data.redirect');
+    }
+}

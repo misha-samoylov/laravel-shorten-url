@@ -8,7 +8,7 @@ class HashServiceTest extends TestCase
 {
     private const MD5_MAX_LENGTH = 32;
 
-    public function test_check_hash_length(): void
+    public function test_check_hash_length_success(): void
     {
         $hash = HashService::hash();
         $this->assertEquals(self::MD5_MAX_LENGTH, strlen($hash));
