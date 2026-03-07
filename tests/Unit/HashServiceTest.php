@@ -8,6 +8,11 @@ class HashServiceTest extends TestCase
 {
     private const MD5_MAX_LENGTH = 32;
 
+    /**
+     * Проверяем верную длину хэша.
+     *
+     * @return void
+     */
     public function test_check_hash_length_success(): void
     {
         $hash = HashService::hash();

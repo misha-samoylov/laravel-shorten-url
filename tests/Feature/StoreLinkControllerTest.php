@@ -11,6 +11,11 @@ class StoreLinkControllerTest extends TestCase
 
     private const TEST_URL = 'https://google.com';
 
+    /**
+     * Провереряем успешность добавление ссылки.
+     *
+     * @return void
+     */
     public function test_store_link_success_appended(): void
     {
         $payload = [
@@ -23,6 +28,11 @@ class StoreLinkControllerTest extends TestCase
             ->assertJsonPath('data.redirect', self::TEST_URL);
     }
 
+    /**
+     * Проверяем что ссылка не добавилась, ввиду не верного параметра.
+     *
+     * @return void
+     */
     public function test_store_link_fail_appended(): void
     {
         $payload = [

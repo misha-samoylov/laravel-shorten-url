@@ -11,6 +11,10 @@ class IndexLinkControllerTest extends TestCase
 
     private const TEST_URL = 'https://google.com';
 
+    /**
+     * Добавляем ссылку и проверяем наличие сокращенной ссылки.
+     * @return void
+     */
     public function test_index_link(): void
     {
         $payload = [
