@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Services\Api\V1\HashService;
-use App\Services\Api\V1\LinkService;
 use Illuminate\Http\RedirectResponse;
+use App\Services\Api\V1\LinkService;
 
 class HashRedirectController extends Controller
 {

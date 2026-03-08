@@ -2,9 +2,9 @@
 
 namespace App\Services\Api\V1;
 
-use App\Repositories\LinkRepository;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
+use App\Repositories\LinkRepository;
 
 class LinkService
 {
