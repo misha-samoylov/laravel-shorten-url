@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Repositories\LinkRepository;
+use App\Services\Api\V1\HashService;
+use App\Services\Api\V1\LinkService;
 use Illuminate\Http\RedirectResponse;
 
 class HashRedirectController extends Controller
 {
     public function __construct(
-        private LinkRepository $linkRepository
+        private LinkService $linkService
     )
     {
     }
@@ -22,9 +23,8 @@ class HashRedirectController extends Controller
      */
     public function index(): RedirectResponse
     {
-        $route = request()->route('hash');
-        $link = $this->linkRepository->getRedirectByHash($route);
-
-        return redirect()->away($link->redirect);
+        $hash = request()->route('hash');
+        $link = $this->linkService->getLinkFromHash($hash);
+        return redirect()->away($link);
     }
 }

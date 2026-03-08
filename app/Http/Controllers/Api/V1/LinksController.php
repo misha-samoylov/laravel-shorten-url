@@ -2,18 +2,16 @@
 
 namespace App\Http\Controllers\Api\V1;
 
+use Illuminate\Http\Resources\Json\JsonResource;
 use App\Http\Requests\Api\V1\StoreLinkRequest;
 use App\Http\Resources\Api\V1\IndexLinkResource;
 use App\Http\Resources\Api\V1\StoreLinkResource;
-use Illuminate\Http\Resources\Json\JsonResource;
-use App\Services\Api\V1\HashService;
-use App\Repositories\LinkRepository;
+use App\Services\Api\V1\LinkService;
 
 class LinksController
 {
     public function __construct(
-        private HashService $hashService,
-        private LinkRepository $linkRepository
+        private LinkService $linkService,
     )
     {
     }
@@ -27,7 +25,7 @@ class LinksController
      */
     public function index(): JsonResource
     {
-        $data = $this->linkRepository->findAll();
+        $data = $this->linkService->getAllLinks();
         return IndexLinkResource::collection($data);
     }
 
@@ -41,11 +39,8 @@ class LinksController
      */
     public function store(StoreLinkRequest $request): JsonResource
     {
-        $link = $this->linkRepository->create([
-            'hash' => $this->hashService->hash(),
-            'redirect' => $request->validated()['redirect'],
-        ]);
-
-        return new StoreLinkResource($link);
+        $link = $request->validated()['redirect'];
+        $model = $this->linkService->storeLink($link);
+        return new StoreLinkResource($model);
     }
 }
