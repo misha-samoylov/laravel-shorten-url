@@ -39,6 +39,7 @@ Back-end проект для сокращения ссылок.
 ## Сборка и запуск
 
 ````
+php artisan key:generate
 php artisan serve
 ````
 
