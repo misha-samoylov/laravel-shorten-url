@@ -45,7 +45,7 @@ class LinkService
      * @param string $hash
      * @return Model|null
      */
-    public function getLinkFromHash(string $hash): ?Model
+    public function getLinkFromHash(string $hash): ?string
     {
         return $this->linkRepository->getRedirectByHash($hash)->redirect ?? null;
     }
