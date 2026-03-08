@@ -31,6 +31,8 @@
 
 ## TODO
 
+Как появится больше времени добавлю:
+
 * Docker, Docker Compose
 * Makefile
 
