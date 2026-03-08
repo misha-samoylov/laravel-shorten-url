@@ -24,6 +24,6 @@ class HashRedirectController extends Controller
     {
         $hash = request()->route('hash');
         $link = $this->linkService->getLinkFromHash($hash);
-        return redirect()->away($link);
+        return redirect()->to($link);
     }
 }
