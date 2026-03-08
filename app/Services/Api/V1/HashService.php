@@ -6,7 +6,10 @@ use Illuminate\Support\Str;
 
 class HashService
 {
-    public static function hash(): string
+    /**
+     * Сгенерировать time-ordered UUID.
+     */
+    public static function generateHash(): string
     {
         return md5(Str::orderedUuid());
     }

@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\RedirectResponse;
 use App\Services\Api\V1\LinkService;
 
-class HashRedirectController extends Controller
+class RedirectController extends Controller
 {
     public function __construct(
         private LinkService $linkService

@@ -34,7 +34,7 @@ class LinkService
     public function storeLink(string $link): Model
     {
         return $this->linkRepository->create([
-            'hash' => $this->hashService->hash(),
+            'hash' => $this->hashService->generateHash(),
             'redirect' => $link,
         ]);
     }

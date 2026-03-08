@@ -1,10 +1,10 @@
 <?php
 
-use App\Http\Controllers\HashRedirectController;
+use App\Http\Controllers\RedirectController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/{hash}', [HashRedirectController::class, 'index']);
+Route::get('/{hash}', [RedirectController::class, 'index']);

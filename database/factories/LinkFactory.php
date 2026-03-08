@@ -18,7 +18,7 @@ class LinkFactory extends Factory
     public function definition(): array
     {
         return [
-            'hash' => HashService::hash(),
+            'hash' => HashService::generateHash(),
             'redirect' => $this->faker->url(),
         ];
     }

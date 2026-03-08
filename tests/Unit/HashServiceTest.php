@@ -15,7 +15,7 @@ class HashServiceTest extends TestCase
      */
     public function test_check_hash_length_success(): void
     {
-        $hash = HashService::hash();
+        $hash = HashService::generateHash();
         $this->assertEquals(self::MD5_MAX_LENGTH, strlen($hash));
     }
 }
