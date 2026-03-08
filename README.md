@@ -1,41 +1,63 @@
 # laravel-shorten-url
 
-Проект для сокращения ссылок. Отправляем ссылку на соотв. адрес и в ответ получаем адрес по которому можно будет получить эту же ссылку, но уже сокращенную.
+Проект для сокращения ссылок. 
 
-Доступные endpoints:
-````
-POST /api/v1/links (params: redirect)
-GET /api/v1/links
-````
+### Механика работы
 
-Используется ПО:
-* Docker, Docker Compose
-* PHP 8.2
-* MySQL
-* Laravel 12
-* sqlite (for testing)
-* dedoc/scramble for /docs/api
+Отправляем ссылку на соотв. endpoint и в ответ получаем адрес по которому можно будет получить сокращенную ссылку.
 
-Используется в коде:
+### Доступные endpoints
+
+* POST /api/v1/links
+* GET /api/v1/links
+* GET /docs/api
+* GET /{hash}
+* GET /
+
+### Используемое ПО
+
+* ЯП: [PHP 8.2](https://www.php.net/)
+* Фреймворк : [Laravel 12](https://laravel.com/)
+* СУБД: [MySQL 8.0](https://www.mysql.com/)
+* СУБД для тестрования: [SQLite](https://sqlite.org/)
+* API документация: [Scramble](https://github.com/dedoc/scramble) 
+
+### Используется в коде
+
 * Layered Architecture (Многослойная архитектура): Service, Repository
-* Seeders, Tests
+* Seeders
+* Tests
+* API документация
+
+## TODO
+
+* Docker, Docker Compose
+* Makefile
 
 ## Сборка и запуск
 
-Для сборки достаточно выполнить:
 ````
-make run
+php artisan serve
 ````
 
-На странице `/docs/api` указаны все endpoints.
+Далее проект доступен по адресу [http://localhost:8000/](http://localhost:8000/).
 
-## Требуется для сборки
+На странице документации API [http://localhost:8000/docs/api](http://localhost:8000/docs/api) указаны все endpoints.
 
-* make
-* Docker
-* Docker Compose
+### Примечание
 
-## Проверено на
+Для тестов:
+
+````
+php artisan test
+````
+
+Для сидов:
+
+````
+php artisan db:seed
+````
+
+## Протестировано
 
 * Ubuntu 24.04.3 LTS
-* Docker version 29.1.5
