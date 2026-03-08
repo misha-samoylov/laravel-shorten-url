@@ -16,7 +16,7 @@ class IndexHashRedirectControllerTest extends TestCase
      *
      * @return void
      */
-    public function test_redirect_short_url()
+    public function test_redirect_short_url_success(): void
     {
         $payload = [
             'redirect' => self::TEST_URL,
