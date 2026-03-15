@@ -1,66 +1,62 @@
 # laravel-shorten-url
 
-Back-end проект для сокращения ссылок.
+Пример back-end проект для сокращения ссылок.
 
 ### Механика работы
 
-Отправляем ссылку на соотв. endpoint и в ответ получаем сокращенную ссылку.
+Отправляем ссылку на POST endpoint и в ответ получаем сокращенную ссылку.
 
 ### Доступные endpoints
 
-* POST /api/v1/links
-* GET /api/v1/links
-* GET /docs/api
-* GET /{hash}
-* GET /
+* `POST /api/v1/links`
+* `GET /api/v1/links`
+* `GET /docs/api`
+* `GET /{hash}`
+* `GET /`
 
 ### Используемое ПО
 
-* ЯП: [PHP 8.2](https://www.php.net/)
-* Фреймворк : [Laravel 12](https://laravel.com/)
-* СУБД: [MySQL 8.0](https://www.mysql.com/)
-* СУБД для тестрования: [SQLite](https://sqlite.org/)
-* API документация: [Scramble](https://github.com/dedoc/scramble) 
+* [Docker / Docker Compose](https://www.docker.com/)
+* [PHP 8.4](https://www.php.net/)
+* [Laravel 12](https://laravel.com/)
+* [nginx](https://nginx.org/)
+* [MySQL 8.0](https://www.mysql.com/)
+* [SQLite](https://sqlite.org/)
+* [Scramble](https://github.com/dedoc/scramble) 
 
-### Используется в коде
+### Используется
 
+* Контейнеризация
 * Layered Architecture (Многослойная архитектура): Service, Repository
 * Seeders
 * Tests
 * API документация
 
-## TODO
-
-Как появится больше времени добавлю:
-
-* Docker, Docker Compose
-* Makefile
-
 ## Сборка и запуск
 
-````
-php artisan key:generate
-php artisan serve
+````shell
+make build
 ````
 
-Далее проект доступен по адресу [http://localhost:8000/](http://localhost:8000/).
+Далее проект доступен по адресу [http://localhost:8080/](http://localhost:8080/).
 
-На странице документации API [http://localhost:8000/docs/api](http://localhost:8000/docs/api) указаны все endpoints.
+На странице документации API [http://localhost:8080/docs/api](http://localhost:8080/docs/api) указаны все endpoints.
 
 ### Примечание
 
 Для тестов:
 
-````
-php artisan test
+````shell
+make test
 ````
 
 Для сидов:
 
-````
-php artisan db:seed
+````shell
+make db:seed
 ````
 
 ## Протестировано
 
 * Ubuntu 24.04.3 LTS
+* Docker 29.3.0

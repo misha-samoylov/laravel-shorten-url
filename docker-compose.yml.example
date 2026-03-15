@@ -1,0 +1,43 @@
+version: '3'
+services:
+    nginx:
+        image: nginx:1.24.0
+        ports:
+            - "8080:80"
+        volumes:
+            - ./docker/local/nginx/conf.d:/etc/nginx/conf.d
+            - ./docker/local/nginx/logs:/var/log/nginx
+            - ./:/var/www/app
+        links:
+            - php
+        depends_on:
+            php:
+                condition: service_started
+
+    php:
+        build: ./docker/local/php
+        links:
+            - mysql
+        depends_on:
+           mysql:
+              condition: service_healthy
+        volumes:
+            - ./:/var/www/app
+
+    mysql:
+        image: mysql:8.0-debian
+        #ports:
+        #    - "3306:3306"
+        volumes:
+          - ./docker/local/mysql/conf.d:/etc/mysql/conf.d
+          - ./docker/local/mysql/logs:/var/log/mysql
+          - ./docker/local/mysql/database/:/var/lib/mysql
+          - ./docker/local/mysql/mysql-files:/var/lib/mysql-files
+        environment:
+            MYSQL_DATABASE: laravel_shorten_url
+            MYSQL_ROOT_PASSWORD: password
+            MYSQL_ROOT_HOST: '%'
+        healthcheck:
+            test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+            interval: 5s
+            retries: 5

@@ -1,0 +1,6 @@
+# project files
+mysql/database
+mysql/mysql-files
+mysql/logs
+nginx/logs
+.idea
