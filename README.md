@@ -1,6 +1,6 @@
 # laravel-shorten-url
 
-Пример back-end проект для сокращения ссылок.
+Пример back-end проекта для сокращения ссылок.
 
 ### Механика работы
 
@@ -38,19 +38,19 @@
 make build
 ````
 
-Далее проект доступен по адресу [http://localhost:8080/](http://localhost:8080/).
+Далее проект будет доступен по адресу [http://localhost:8080/](http://localhost:8080/).
 
-На странице документации API [http://localhost:8080/docs/api](http://localhost:8080/docs/api) указаны все endpoints.
+На странице документации API [http://localhost:8080/docs/api](http://localhost:8080/docs/api) указаны все endpoints, где также можно выполнить запрос на создание ссылки.
 
-### Примечание
+### Команды
 
-Для тестов:
+Для запуска тестов:
 
 ````shell
 make test
 ````
 
-Для сидов:
+Для запуска сидов:
 
 ````shell
 make db:seed
