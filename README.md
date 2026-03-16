@@ -22,7 +22,8 @@
 * [nginx](https://nginx.org/)
 * [MySQL 8.0](https://www.mysql.com/)
 * [SQLite](https://sqlite.org/)
-* [Scramble](https://github.com/dedoc/scramble) 
+* [Scramble](https://github.com/dedoc/scramble)
+* [Make](https://www.gnu.org/software/make/)
 
 ### Используется
 
