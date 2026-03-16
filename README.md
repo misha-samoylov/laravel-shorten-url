@@ -53,7 +53,13 @@ make test
 Для запуска сидов:
 
 ````shell
-make db:seed
+make seed
+````
+
+Для входа в shell:
+
+````shell
+make shell
 ````
 
 ## Протестировано

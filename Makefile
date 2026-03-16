@@ -10,8 +10,8 @@ build:
 test:
 	docker compose exec php php artisan test
 
+seed:
+	docker compose exec php php db:seed
+
 shell:
 	docker compose exec php bash
-
-migration:
-	docker compose exec php php artisan migrate
