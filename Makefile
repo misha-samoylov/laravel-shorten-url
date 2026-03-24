@@ -11,7 +11,7 @@ test:
 	docker compose exec php php artisan test
 
 seed:
-	docker compose exec php php db:seed
+	docker compose exec php php artisan db:seed
 
 shell:
 	docker compose exec php bash
