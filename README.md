@@ -36,7 +36,7 @@
 ## Сборка и запуск
 
 ````shell
-make build
+make
 ````
 
 Далее проект будет доступен по адресу [http://localhost:8080/](http://localhost:8080/).
@@ -61,6 +61,11 @@ make seed
 
 ````shell
 make shell
+````
+
+Остановить и очистить все сервисы Docker проекта:
+````shell
+make clean
 ````
 
 ## Протестировано
